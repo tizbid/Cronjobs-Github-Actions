@@ -3,6 +3,7 @@ import logging.handlers
 import os
 import tweepy
 
+# Set up logging
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
@@ -50,7 +51,7 @@ if __name__ == "__main__":
             most_trending_topic = trend["name"]
             
     #Log in the most trending topic
-    logger.info(f'Todays trending Tweeter Topic in Germany is: {most_trending_topic} with  {max_tweet_volume} tweets')
+    logger.info(f'Todays trending Twitter Topic in Germany is: {most_trending_topic} with  {max_tweet_volume} tweets')
     
     
     

@@ -2,7 +2,7 @@ name: run main.py
 
 on:
   schedule:
-    - cron: '*/10 * * * *'
+    - cron: '0 0 * * *' # At 00:00 everyday
 
 jobs:
   build:
@@ -23,11 +23,11 @@ jobs:
           pip install -r requirements.txt
           
       - name: execute py script # run main.py
-        env:
-          CONSUMER_KEY: ${{ secrets.CONSUMER_KEY }}
-          CONSUMER_SECRET: ${{ secrets.CONSUMER_SECRET }}
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }}
+        #env:
+          #CONSUMER_KEY: ${{ secrets.CONSUMER_KEY }}
+          #CONSUMER_SECRET: ${{ secrets.CONSUMER_SECRET }}
+          #ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          #ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }}
         run: python main.py
           
       - name: commit files
