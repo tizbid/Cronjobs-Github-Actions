@@ -4,12 +4,6 @@ import os
 import requests
 import tweepy
 
-# Enter your Twitter API keys and tokens here
-consumer_key = "FP6s8kozqDOUSdNnlhwvZdks6"
-consumer_secret = "EvuE4uY3pGpwyW2IxAIFTP0XaYn7mTGPNOVH6M32tkItKHFdCc"
-access_token = "2768144092-dFxSnQ77jRPBBRYLMesK9iQSHMRJm9Ro4U5ODrh"
-access_token_secret = "3KE8jIxMjJZvKwjaQd3k6qa6egdWjzIUKir1tXtCqBY9v"
-
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)

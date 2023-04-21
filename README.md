@@ -1,4 +1,4 @@
-# Schedule a Python script with GitHub Actions
+### Schedule a Python script with GitHub Actions
 
 
 This example shows how to run a Python script as cron job with GitHub Actions. It calls an API once a week (could be any schedule you want), logs the response in `status.log`, and automatically pushes the changes to this repo.
