@@ -3,9 +3,9 @@
 
 This repository contains Python scripts running as cron job with GitHub Actions. There are several fun use cases for 
 
-this. Also since github provides 2000mins/month of gihub actions under its free tier, these can be used in several 
+this. Also since github provides 2000mins/month of gihub actions under its free tier, this can be used in several 
 
-automation projects.
+automation projects like this one.
 
 
 #### Common Basics
