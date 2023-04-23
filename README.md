@@ -16,7 +16,7 @@ Scripts in this repository are meant for different use cases, however they have 
 * A workflow YAML file that configures each job in a given script.We can have multiple files for each project in the .github/   workflows folder. So far it is within the limit of a free tier account.
 
 
-### Example: Twitter trends
+#### Example: Twitter trends
 
 An example script implemented uses `twitter API` to obtain the most trending tweets of the day based on `number of views` for given location,it further logs the response in a `status.log`, and automatically pushes the changes to this repo.
 
