@@ -9,10 +9,10 @@ automation projects like this one.
 
 
 #### Common Basics
-Scripts in this repository are meant for different use cases, however they have some similarities.
+Scripts in this repository are meant for different use cases, however some similarities may include.
 
-* Environment variables can either be accessed within the main script or referenced as secrets saved within github
-* A log file is updated at the succesful execution of the script at its scheduled time
+* Environment variables which either be accessed either within the main script or referenced as secrets saved within github
+* A log file that is updated at the succesful execution of the script at its scheduled time
 * A workflow YAML file that configures each job in a given script.We can have multiple of such files in the .github/workflows folder. 
 
 
