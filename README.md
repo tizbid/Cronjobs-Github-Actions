@@ -9,19 +9,19 @@ automation projects.
 
 
 #### Common Basics
-Scripts in this repository are meant for different use cases, however they have some similarities
+Scripts in this repository are meant for different use cases, however they have some similarities.
 
 * Environment variables can either be accessed within the main script or referenced as secrets saved within github
 * A log file is updated at the succesful execution of the script at its scheduled time
-* A workflow YAML file that configures each job in a given script.We can have multiple files for each project in the .github/   workflows folder. So far it is within the limit of a free tier account.
+* A workflow YAML file that configures each job in a given script.We can have multiple of such files in the .github/workflows folder. 
 
 
-#### Example: Twitter trends
+#### Example: Twitter_trends.py
 
-An example script implemented uses `twitter API` to obtain the most trending tweets of the day based on `number of views` for given location,it further logs the response in a `status.log`, and automatically pushes the changes to this repo.
+An example script implemented uses `twitter API` to obtain the most trending tweets of the day based on `number of views` for given location,it further logs the response in a `twitter_trends.log` file, and automatically pushes the changes to this repo.
 
--  `main.py` : Implement script 
-- `.github/workflows/actions.yml` : Inspect and configure cron job in GitHub Action 
+-  `twitter_trends.py` : Implement script 
+- `.github/workflows/twitter_cronjobs.yml` : Inspect and configure cron job in GitHub Action 
 -  `requirements.txt` : Installs and use third party packages
-- `Secret environment variables`: Stores `twitter API`  in github refernced inside the `actions.yml` and `main.py`files
+- `Secret environment variables`: Stores `twitter API`  in github refernced inside the `twitter_cronjobs.yml` and `twitter_trends.py`files
 
