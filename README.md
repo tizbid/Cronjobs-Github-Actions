@@ -1,4 +1,4 @@
-### Scheduling Python scripts with GitHub Actions
+### Scheduling python scripts as cron jobs with GitHub Actions
 
 
 This repository contains Python scripts running as cron job with GitHub Actions. There are several fun use cases for 
