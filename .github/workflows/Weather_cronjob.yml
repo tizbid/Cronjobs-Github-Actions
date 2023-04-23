@@ -1,8 +1,8 @@
-name: run twitter_trends.py
+name: run weather.py
 
 on:
   schedule:
-    - cron: '*/10 * * * *' # At 00:00 everyday
+    - cron: '0 0 * * *' 
 
 jobs:
   build:
@@ -24,11 +24,8 @@ jobs:
           
       - name: execute py script # run main.py
         env:
-          CONSUMER_KEY: ${{ secrets.CONSUMER_KEY }}
-          CONSUMER_SECRET: ${{ secrets.CONSUMER_SECRET }}
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }}
-        run: python twitter_trends.py
+          SOME_SECRET: ${{ secrets.SOME_SECRET }}
+        run: python weather.py
           
       - name: commit files
         run: |
@@ -41,4 +38,4 @@ jobs:
         uses: ad-m/github-push-action@v0.6.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: master 
+          branch: master

@@ -9,7 +9,7 @@ logger.setLevel(logging.DEBUG)
 
 # Define a RotatingFileHandler to handle logging output
 logger_file_handler = logging.handlers.RotatingFileHandler(
-    "status.log",  # File name
+    "Twitter_trends.log",  # File name
     maxBytes=1024 * 1024,  # Maximum size in bytes before rollover
     backupCount=1,  # Number of backup files to keep
     encoding="utf8",  # File encoding
