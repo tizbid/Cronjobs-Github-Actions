@@ -1,9 +1,11 @@
 ### Scheduling Python scripts with GitHub Actions
 
 
-This repository contains Python scripts running as cron job with GitHub Actions. There are several fun use cases for this.
+This repository contains Python scripts running as cron job with GitHub Actions. There are several fun use cases for 
 
-Also since github provides 2000mins/month of gihub actions under its free tier, these can be used in several automation projects.
+this. Also since github provides 2000mins/month of gihub actions under its free tier, these can be used in several 
+
+automation projects.
 
 
 #### Common Basics
