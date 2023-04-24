@@ -1,0 +1,51 @@
+name: Delete Azure Resources
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Runs every day at midnight UTC
+  workflow_dispatch:
+
+jobs:
+  delete_resources:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Terraform
+      uses: hashicorp/setup-terraform@v1.0.0
+      with:
+        terraform_version: 1.0.4
+
+    - name: Azure login
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - name: Terraform init
+      run: terraform init
+
+    - name: Terraform plan
+      id: plan
+      run: terraform plan -out=tfplan -input=false -no-color
+
+    - name: Check if there are resources to delete
+      run: |
+        if grep -q "resource[s]* to destroy" tfplan; then
+          echo "There are resources to delete. Proceeding with deletion..."
+        else
+          echo "No resources to delete."
+          echo "Your subscription have no resources." >> deleted_resources.log
+          exit 1
+        fi
+
+    - name: Terraform apply
+      run: terraform apply -auto-approve -input=false -no-color tfplan
+
+    - name: Log deleted resources
+      run: |
+        echo "The following resources were deleted:" >> deleted_resources.log
+        terraform show | grep "^  id" | awk '{print $3}' >> deleted_resources.log
+
+    - name: Terraform state list
+      run: terraform state list
