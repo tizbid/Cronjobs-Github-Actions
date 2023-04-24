@@ -2,7 +2,7 @@ name: run twitter_trends.py
 
 on:
   schedule:
-    - cron: '*/10 * * * *' # At 00:00 everyday
+    - cron: '0 23 * * *' # At 23:00 everyday
 
 jobs:
   build:

@@ -1,8 +1,8 @@
 ### Scheduling Python scripts with GitHub Actions
 
-In this scripts, I scheduled the deletion of infatructures from a cloud provider(Azure) and a particular subscription.
+In this scripts, I scheduled the deletion of infatructures from a cloud provider(Azure).
 
-Incase I for get to delete anything them after using them for labs and practices. That way I do not incure added on costs on my 
+This can be very useful for labs and practice use cases, incase I forget to delete anything after a practice or lab. 
 
-credit :).
+That way I do not incure added on costs on my credit :).
 
