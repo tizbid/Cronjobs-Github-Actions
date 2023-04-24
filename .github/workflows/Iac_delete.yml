@@ -14,9 +14,11 @@ jobs:
 
     - name: Set up Terraform
       uses: hashicorp/setup-terraform@v1.0.0
-      with:
-        terraform_version: 1.0.4
-
+          
+          echo "::stop-commands::`echo -n ${{ github.token }} | sha256sum | head -c 64`"
+          echo "untrusted output"
+          echo "::`echo -n ${{ github.token }} | sha256sum | head -c 64`::"
+   
     - name: Azure login
       uses: azure/login@v1
       with:
