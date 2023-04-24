@@ -15,9 +15,9 @@ jobs:
     - name: Set up Terraform
       uses: hashicorp/setup-terraform@v1.0.0
           
-          echo "::stop-commands::`echo -n ${{ github.token }} | sha256sum | head -c 64`"
+          echo "::stop-commands::`echo -n ${{ secrets.GITHUB_TOKEN  }} | sha256sum | head -c 64`"
           echo "untrusted output"
-          echo "::`echo -n ${{ github.token }} | sha256sum | head -c 64`::"
+          echo "::`echo -n ${{  secrets.GITHUB_TOKEN  }} | sha256sum | head -c 64`::"
    
     - name: Azure login
       uses: azure/login@v1
