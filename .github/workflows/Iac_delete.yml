@@ -1,8 +1,8 @@
-name: Delete Azure Resources
+name: Azure Resources Deletion
 
 on:
   schedule:
-    - cron: '0 0 * * *' 
+    - cron: '0 0 * * *' # Schedule the job to run every day at midnight UTC
   workflow_dispatch:
 
 jobs:
@@ -10,43 +10,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout code
+      uses: actions/checkout@v2
 
-    - name: Set up Terraform
-      uses: hashicorp/setup-terraform@v1.0.0  
-      env:
-          ACTIONS_ALLOW_UNSECURE_COMMANDS: true
-      
-      
-    - name: Azure login
-      uses: Azure/login@v1
+    - name: Set up Azure CLI
+      uses: azure/setup-azure-cli@v1
       with:
-        creds: '{"clientId":"${{ secrets.CLIENT_ID }}","clientSecret":"${{ secrets.CLIENT_SECRET }}","subscriptionId":"${{ secrets.SUBSCRIPTION_ID }}","tenantId":"${{ secrets.TENANT_ID }}"}'
+        azcliversion: 'latest'
 
-    - name: Terraform init
-      run: terraform init
-
-    - name: Terraform plan
-      id: plan
-      run: terraform plan -out=tfplan -input=false -no-color
-
-    - name: Check if there are resources to delete
+    - name: Delete Azure Resources
       run: |
-        if grep -q "resource[s]* to destroy" tfplan; then
-          echo "There are resources to delete. Proceeding with deletion..."
-        else
-          echo "No resources to delete."
-          echo "Your subscription have no resources." >> deleted_resources.log
-          exit 1
-        fi
+        # Log in to Azure
+        az login --service-principal -u ${{ secrets.AZURE_CLIENT_ID }} -p ${{ secrets.AZURE_CLIENT_SECRET }} --tenant ${{ secrets.AZURE_TENANT_ID }}
 
-    - name: Terraform apply
-      run: terraform apply -auto-approve -input=false -no-color tfplan
+        # Delete all resources in the subscription
+        az resource delete --ids $(az resource list --query "[].id" --output tsv) --yes
 
-    - name: Log deleted resources
-      run: |
-        echo "The following resources were deleted:" >> deleted_resources.log
-        terraform show | grep "^  id" | awk '{print $3}' >> deleted_resources.log
-
-    - name: Terraform state list
-      run: terraform state list
+        # Log out of Azure
+        az logout
