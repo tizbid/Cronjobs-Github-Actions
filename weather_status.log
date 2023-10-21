@@ -363,3 +363,5 @@
 2023-10-19 22:12:11,132 - __main__ - INFO - Weather in Berlin: 7.0
 2023-10-20 22:12:08,641 - __main__ - INFO - Token value: Token not available!
 2023-10-20 22:12:08,825 - __main__ - INFO - Weather in Berlin: 6.3
+2023-10-21 22:11:39,772 - __main__ - INFO - Token value: Token not available!
+2023-10-21 22:11:40,321 - __main__ - INFO - Weather in Berlin: 10.41
